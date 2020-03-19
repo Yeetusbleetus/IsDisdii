@@ -170,7 +170,7 @@ end
 --------------------
 local credits = library:CreateWindow({text='Credits'})
 credits:AddLabel("Credits")
-credits:AddLabel("Aaro On V3RM: Scripting")
+credits:AddLabel("Aaro: Scripting")
 credits:AddLabel("wally: UI")
 credits:AddLabel("--[ ISLE HUB ]--")
  
