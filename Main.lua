@@ -1,15 +1,9 @@
 local timo = false
 local search = ""
-local library = loadstring(game:HttpGet("https://pastebin.com/raw/7Z6TzFnv", true))()
-local Visual = library:CreateWindow({
-  text = "Visual"
-})
-local Misc = library:CreateWindow({
-  text = "Misc"
-})
-local TP = library:CreateWindow({
-  text = "Teleport (beta)"
-})
+local library = loadstring(game:HttpGet("http://zerotwo.ga/script/wally", true))()
+local Visual = library:CreateWindow("Visual")
+local Misc = library:CreateWindow("Misc")
+local TP = library:CreateWindow("Teleport (beta)")
 
 -----------------------
  
@@ -168,42 +162,61 @@ local function COLESP(state)
     end
 end
 --------------------
-local credits = library:CreateWindow({text='Credits'})
+--[[local credits = library:CreateWindow({text='Credits'})
 credits:AddLabel("Credits")
 credits:AddLabel("Aaro On V3RM: Scripting")
 credits:AddLabel("wally: UI")
-credits:AddLabel("--[ ISLE HUB ]--")
- 
-Visual:AddBox("search", function(object, focus)
-  if focus then
-     print(object.Text)
-     search = object.Text
-  end
-end)
+credits:AddLabel("--[ ISLE HUB ]--")--]]
+local function setsearch(item)
+    search = item
+end
+Visual:SearchBox("Search", {
+   location = shared;
+   flag = "Search";
+   list = {
+       "Battle Rifle";
+       "Revolver";
+       "Scoped Rifle";
+       "Proton Cannon";
+       "Double Barrel Shotgun";
+       "Combat Shotgun";
+       "Sub-machine Gun";
+       "Tactical Pistol";
+       "Light Machine Gun";
+       "Gatling Gun";
+       "Grenade Launcher";
+       "Orbital Strike";
+       "Tactical Shotgun";
+       "Sniper Rifle";
+       "Assault shotgun";
+       "Energy Lancer";
+       "Strange Drink";
+   }
+}, setsearch)
  
 -- add buttons thingos
 
-Visual:AddToggle("Item ESP", function(state)
+Visual:Toggle("Item ESP",{} ,function(state)
     ITEMESP(state)
 end)
  
-Visual:AddToggle("Collectible ESP", function(state)
+Visual:Toggle("Collectible ESP",{} , function(state)
     COLESP(state)
 end)
  
-Visual:AddToggle("Army ESP", function(state)
+Visual:Toggle("Merc ESP",{} , function(state)
     MERCESP(state)
 end)
  
-Visual:AddToggle("Crate ESP", function(state)
+Visual:Toggle("Crate ESP",{} , function(state)
     CRATESP(state)
 end)
  
-Misc:AddToggle("Anti-Stan", function(state)
+Misc:Toggle("Anti-Stan",{} , function(state)
     timo = state
 end)
  
-Misc:AddButton("Lab Code", function()
+Misc:Button("Lab Code", function()
     for i, thing in pairs(workspace:GetChildren()) do
         if thing.Name == "Part" and thing:FindFirstChild("SurfaceGui") then
             if thing.SurfaceGui:FindFirstChild("TextLabel") then
@@ -215,14 +228,14 @@ Misc:AddButton("Lab Code", function()
     end
 end)
  
-Misc:AddButton("Portal Email", function()
+Misc:Button("Portal Email", function()
     print(workspace.ObservatoryComputer.Monitor.SurfaceGui.Email["6"].Message2.Text)
 end)
 
-TP:AddButton("Random TP", function()
+TP:Button("Random TP", function()
     randomtp()
 end)
-TP:AddButton("Ship TP (only day1)", function()
+TP:Button("Ship TP (only day1)", function()
     shiptp()
 end)
  
