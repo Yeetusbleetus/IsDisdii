@@ -70,7 +70,11 @@ local function CRATESP(state)
 end
  
 local function ITEMESP(state)
+
     if state == true then
+	if workspace:FindFirstChild("ITEMESP") then
+	    workspace:FindFirstChild("ITEMESP"):Destroy()
+	end
         local fold = Instance.new("Part",workspace)
         fold.Name = "ITEMESP"
         fold.Anchored = true
