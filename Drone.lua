@@ -54,7 +54,7 @@ RS.RenderStepped:Connect(function()
 				insertdrone(p)
 			end
 			local CF = ((p.Character.HumanoidRootPart.CFrame * CFrame.new(7,10,7))*CFrame.Angles(0,math.rad(180),0))
-			local drone = p.Character:FindFirstChild("Drone")
+			local drone = fol:FindFirstChild(p.Name)
 			local BG = drone.PrimaryPart:FindFirstChild("BodyGyro")
 			local BP = drone.PrimaryPart:FindFirstChild("BodyPosition")
 			BP.position = CF.p
