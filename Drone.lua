@@ -10,10 +10,12 @@ drones["GINTASM2"] = "He1per_Drone"
 local dronefolder = game:GetObjects("rbxassetid://5180450456")[1]
 dronefolder.Parent = game.ReplicatedStorage
 
+local fol = Instance.new("Folder",workspace)
+
 local function insertdrone(plr)
 	local dronemodel = dronefolder[drones[plr.Name]]:Clone()
-	dronemodel.Name = "Drone"
-	dronemodel.Parent = plr.Character
+	dronemodel.Name = plr.Name
+	dronemodel.Parent = fol
 
 	local primarypart = dronemodel.PrimaryPart
 	for i, part in pairs(dronemodel:GetDescendants()) do
@@ -48,7 +50,7 @@ local RS = game:GetService("RunService")
 RS.RenderStepped:Connect(function()
 	for i, p in pairs(game.Players:GetPlayers()) do
 		if drones[p.Name] then
-			if p.Character:FindFirstChild("Drone") == nil then
+			if fol:FindFirstChild(p.Name) == nil then
 				insertdrone(p)
 			end
 			local CF = ((p.Character.HumanoidRootPart.CFrame * CFrame.new(7,10,7))*CFrame.Angles(0,math.rad(180),0))
