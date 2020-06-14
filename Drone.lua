@@ -1,3 +1,6 @@
+if _G.CanCollide == nil then
+	_G.CanCollide = false
+end
 
 local drones = {}
 
@@ -22,11 +25,11 @@ local function insertdrone(plr)
 			weld.Part0 = primarypart
 			weld.Part1 = part
 			part.Anchored = false
-			part.CanCollide = false
+			part.CanCollide = _G.CanCollide
 		end
 	end
 	primarypart.Anchored = false
-	primarypart.CanCollide = false
+	primarypart.CanCollide = _G.CanCollide
 	local BP = Instance.new("BodyPosition",primarypart)
 	local BG = Instance.new("BodyGyro",primarypart)
 	BP.MaxForce = Vector3.new(math.huge,math.huge,math.huge)
