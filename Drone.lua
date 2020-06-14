@@ -1,3 +1,4 @@
+
 if _G.CanCollide == nil then
 	_G.CanCollide = false
 end
@@ -5,9 +6,9 @@ end
 local drones = {}
 
 drones["Aaro_1"] = "Aaro_Drone"
-drones["GINTASM2"] = "He1per_Drone"
+drones["GINTASM2"] = "DefaultTest"
 
-local dronefolder = game:GetObjects("rbxassetid://5180450456")[1]
+local dronefolder = game:GetObjects("rbxassetid://5181517447")[1]
 dronefolder.Parent = game.ReplicatedStorage
 
 local fol = Instance.new("Folder",workspace)
@@ -62,6 +63,3 @@ RS.RenderStepped:Connect(function()
 		end
 	end
 end)
-
-
-	
