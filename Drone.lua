@@ -1,8 +1,8 @@
 
 local drones = {}
 
-drones["Aaro_1"] = "DefaultTest"
-drones["GINTASM2"] = "DefaultTest"
+drones["Aaro_1"] = "Aaro_Drone"
+drones["GINTASM2"] = "He1per_Drone"
 
 
 
