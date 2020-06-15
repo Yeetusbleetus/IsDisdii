@@ -6,7 +6,7 @@ end
 local drones = {}
 
 drones["Aaro_1"] = "Aaro_Drone"
-drones["GINTASM2"] = "DefaultTest"
+drones["GINTASM2"] = "He1per_Drone"
 
 local dronefolder = game:GetObjects("rbxassetid://5181517447")[1]
 dronefolder.Parent = game.ReplicatedStorage
