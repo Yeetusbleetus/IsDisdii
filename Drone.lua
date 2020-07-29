@@ -42,6 +42,11 @@ local function insertdrone(plr)
 	
 	BG.D = 500
 	BP.D = 2000
+	Players.PlayerRemoving:Connect(function(player)
+		if player.Name == plr.Name then
+			dronemodel:Destroy()
+		end
+	end)
 end
 
 local RS = game:GetService("RunService")
